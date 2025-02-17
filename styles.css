@@ -29,6 +29,51 @@ nav ul {
     margin: 1rem 0;
 }
 
+#day-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#day-navigation li {
+    margin: 0;
+}
+
+#day-navigation a {
+    display: block;
+    padding: 0.5rem;
+    min-width: 2rem;
+    text-align: center;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+#day-navigation a:hover {
+    background-color: var(--neon-blue);
+    color: var(--primary-color);
+}
+
+#home-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#current-question {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+#overall-leaderboard {
+    background-color: var(--secondary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
 nav li {
     margin: 0 1rem;
 }
