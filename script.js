@@ -1,8 +1,30 @@
-let leaderboard = [
-    { name: "Alice", score: 25 },
-    { name: "Bob", score: 22 },
-    { name: "Charlie", score: 20 }
-];
+// Initialize Firebase
+let db;
+let auth;
+let currentUser = null;
+
+// Initialize Firebase when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    import('https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js')
+    .then(() => import('https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js'))
+    .then(() => import('https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js'))
+    .then(() => {
+        const firebaseConfig = {
+            apiKey: "AIzaSyC-GTspIThGlYbuE0zoLST3b9No2tkLwmw",
+            authDomain: "cs-challenge-leaderboard.firebaseapp.com",
+            projectId: "cs-challenge-leaderboard",
+            storageBucket: "cs-challenge-leaderboard.appspot.com",
+            messagingSenderId: "955629714923",
+            appId: "1:955629714923:web:435d1982eb6042d12a2dae",
+            measurementId: "G-B9ZZG440B6"
+        };
+        
+        const app = firebase.initializeApp(firebaseConfig);
+        auth = firebase.auth();
+        db = firebase.firestore();
+        init();
+    });
+});
 
 // DOM Elements
 const leaderboardSection = document.getElementById('leaderboard-section');
@@ -19,10 +41,39 @@ const removeWinnerBtn = document.getElementById('remove-winner-btn');
 
 // Initialize page
 function init() {
-    displayLeaderboard();
-    displayPastQuestions();
+    // Check auth state
+    auth.onAuthStateChanged(user => {
+        currentUser = user;
+        if (user) {
+            // User is signed in
+            document.getElementById('login-form').classList.add('hidden');
+            document.getElementById('admin-panel').classList.remove('hidden');
+        } else {
+            // No user is signed in
+            document.getElementById('login-form').classList.remove('hidden');
+            document.getElementById('admin-panel').classList.add('hidden');
+        }
+    });
+
+    // Load data
+    loadLeaderboard();
+    loadPastQuestions();
     displayPastWinners();
     setupEventListeners();
+}
+
+// Load leaderboard from Firestore
+async function loadLeaderboard() {
+    const snapshot = await db.collection('leaderboard').orderBy('score', 'desc').get();
+    leaderboard = snapshot.docs.map(doc => doc.data());
+    displayLeaderboard();
+}
+
+// Load past questions from Firestore
+async function loadPastQuestions() {
+    const snapshot = await db.collection('questions').orderBy('day', 'desc').get();
+    pastQuestions = snapshot.docs.map(doc => doc.data());
+    displayPastQuestions();
 }
 
 // Display past questions
@@ -108,23 +159,61 @@ function removeLastWinner() {
 
 // Setup event listeners
 function setupEventListeners() {
-    addWinnerBtn.addEventListener('click', addWinner);
-    removeWinnerBtn.addEventListener('click', removeLastWinner);
-    
+    // Admin login
+    document.getElementById('login-btn').addEventListener('click', async () => {
+        const email = document.getElementById('admin-email').value;
+        const password = document.getElementById('admin-password').value;
+        try {
+            await auth.signInWithEmailAndPassword(email, password);
+        } catch (error) {
+            alert('Login failed: ' + error.message);
+        }
+    });
+
+    // Add question
+    document.getElementById('add-question-btn').addEventListener('click', async () => {
+        const question = document.getElementById('new-question').value;
+        const answer = document.getElementById('correct-answer').value;
+        if (question && answer) {
+            try {
+                await db.collection('questions').add({
+                    day: pastQuestions.length + 1,
+                    question: question,
+                    answer: answer,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                loadPastQuestions();
+                document.getElementById('new-question').value = '';
+                document.getElementById('correct-answer').value = '';
+            } catch (error) {
+                alert('Error adding question: ' + error.message);
+            }
+        }
+    });
+
+    // Add winner
+    document.getElementById('add-winner-btn').addEventListener('click', async () => {
+        const winnerName = document.getElementById('winner-name').value;
+        if (winnerName) {
+            try {
+                await db.collection('leaderboard').add({
+                    name: winnerName,
+                    score: 0,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                loadLeaderboard();
+                document.getElementById('winner-name').value = '';
+            } catch (error) {
+                alert('Error adding winner: ' + error.message);
+            }
+        }
+    });
+
     // Navigation events
     navLeaderboard.addEventListener('click', () => switchSection(leaderboardSection));
     navPastQuestions.addEventListener('click', () => switchSection(pastQuestionsSection));
     navPastWinners.addEventListener('click', () => switchSection(pastWinnersSection));
-    
-    // Show admin controls on triple click
-    let clickCount = 0;
-    document.addEventListener('click', () => {
-        clickCount++;
-        if (clickCount === 3) {
-            adminControls.classList.remove('hidden');
-            clickCount = 0;
-        }
-    });
+    navAdmin.addEventListener('click', () => switchSection(adminSection));
 }
 
 // Initialize the app
