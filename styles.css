@@ -144,10 +144,33 @@ button:hover {
     font-weight: bold;
 }
 
-#admin-controls {
+#admin-controls,
+#login-form,
+#admin-panel {
     margin-top: 20px;
     display: flex;
     gap: 10px;
+    flex-direction: column;
+}
+
+#login-form input,
+#admin-panel input,
+#admin-panel textarea {
+    padding: 10px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--neon-blue);
+    color: var(--text-color);
+    border-radius: 4px;
+}
+
+#admin-panel textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#admin-panel h3 {
+    color: var(--neon-blue);
+    margin-top: 1rem;
 }
 
 /* Responsive Design */
