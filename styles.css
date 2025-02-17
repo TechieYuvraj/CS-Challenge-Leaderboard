@@ -33,31 +33,6 @@ main {
     padding: 20px;
 }
 
-#question-section {
-    background-color: var(--secondary-color);
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-#question-container {
-    margin-bottom: 20px;
-}
-
-#answer-form {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-#answer-input {
-    flex: 1;
-    padding: 10px;
-    background-color: var(--primary-color);
-    border: 1px solid var(--neon-blue);
-    color: var(--text-color);
-    border-radius: 4px;
-}
 
 button {
     background-color: var(--accent-color);
@@ -136,9 +111,7 @@ button:hover {
         font-size: 2rem;
     }
     
-    #answer-form {
-        flex-direction: column;
-    }
+    
     
     button {
         width: 100%;

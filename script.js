@@ -1,10 +1,3 @@
-// Sample data
-let currentQuestion = {
-    question: "What is the most common type of phishing attack?",
-    answer: "Email phishing",
-    explanation: "Email phishing is the most common type, where attackers send fraudulent emails to trick users."
-};
-
 let leaderboard = [
     { name: "Alice", score: 25 },
     { name: "Bob", score: 22 },
@@ -12,11 +5,6 @@ let leaderboard = [
 ];
 
 // DOM Elements
-const questionContainer = document.getElementById('question-container');
-const answerForm = document.getElementById('answer-form');
-const answerInput = document.getElementById('answer-input');
-const resultMessage = document.getElementById('result-message');
-const showLeaderboardBtn = document.getElementById('show-leaderboard');
 const leaderboardSection = document.getElementById('leaderboard-section');
 const leaderboardContainer = document.getElementById('leaderboard-container');
 const adminControls = document.getElementById('admin-controls');
@@ -26,37 +14,10 @@ const removeWinnerBtn = document.getElementById('remove-winner-btn');
 
 // Initialize page
 function init() {
-    displayQuestion();
     displayLeaderboard();
     setupEventListeners();
 }
 
-// Display current question
-function displayQuestion() {
-    questionContainer.innerHTML = `
-        <p><strong>Question:</strong> ${currentQuestion.question}</p>
-        <p class="hidden" id="correct-answer"><strong>Correct Answer:</strong> ${currentQuestion.answer}</p>
-        <p class="hidden" id="explanation"><strong>Explanation:</strong> ${currentQuestion.explanation}</p>
-    `;
-}
-
-// Handle form submission
-function handleFormSubmit(e) {
-    e.preventDefault();
-    const userAnswer = answerInput.value.trim();
-    
-    if (userAnswer.toLowerCase() === currentQuestion.answer.toLowerCase()) {
-        resultMessage.textContent = "Correct! 🎉";
-        resultMessage.style.color = "#238636";
-    } else {
-        resultMessage.textContent = "Incorrect. Try again!";
-        resultMessage.style.color = "#f85149";
-    }
-    
-    document.getElementById('correct-answer').classList.remove('hidden');
-    document.getElementById('explanation').classList.remove('hidden');
-    answerInput.value = '';
-}
 
 // Display leaderboard
 function displayLeaderboard() {
@@ -98,8 +59,6 @@ function removeLastWinner() {
 
 // Setup event listeners
 function setupEventListeners() {
-    answerForm.addEventListener('submit', handleFormSubmit);
-    showLeaderboardBtn.addEventListener('click', toggleLeaderboard);
     addWinnerBtn.addEventListener('click', addWinner);
     removeWinnerBtn.addEventListener('click', removeLastWinner);
     
