@@ -40,6 +40,28 @@
         </section>
     </main>
 
-    <script src="script.js"></script>
+    <!-- Add Firebase SDKs -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+      import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyC-GTspIThGlYbuE0zoLST3b9No2tkLwmw",
+        authDomain: "cs-challenge-leaderboard.firebaseapp.com",
+        projectId: "cs-challenge-leaderboard",
+        storageBucket: "cs-challenge-leaderboard.appspot.com",
+        messagingSenderId: "955629714923",
+        appId: "1:955629714923:web:435d1982eb6042d12a2dae",
+        measurementId: "G-B9ZZG440B6"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+    </script>
+    
+    <script src="script.js" type="module"></script>
 </body>
 </html>
