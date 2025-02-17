@@ -88,6 +88,48 @@ button:hover {
     display: none;
 }
 
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    transition: transform 0.2s;
+}
+
+.leaderboard-item:hover {
+    transform: translateX(5px);
+}
+
+.position {
+    color: var(--neon-blue);
+    font-weight: bold;
+    width: 30px;
+}
+
+.name {
+    flex: 1;
+    margin: 0 15px;
+}
+
+.score {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+#result-message {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#admin-controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     h1 {
@@ -100,5 +142,15 @@ button:hover {
     
     button {
         width: 100%;
+    }
+    
+    .leaderboard-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    
+    .name {
+        margin: 5px 0;
     }
 }
