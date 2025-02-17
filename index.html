@@ -10,24 +10,34 @@
     <header>
         <h1>30-Day Cybersecurity Challenge</h1>
         <nav>
+            <ul id="day-navigation">
+                <!-- Days will be populated dynamically -->
+            </ul>
             <ul>
-                <li><a href="#" id="nav-leaderboard">Leaderboard</a></li>
-                <li><a href="#" id="nav-past-questions">Past Questions</a></li>
-                <li><a href="#" id="nav-past-winners">Past Winners</a></li>
+                <li><a href="#" id="nav-home">Home</a></li>
                 <li><a href="#" id="nav-admin">Admin</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
-        <section id="leaderboard-section" class="active-section">
-            <h2>Current Leaderboard</h2>
-            <div id="leaderboard-container"></div>
-            <div id="admin-controls" class="hidden">
-                <input type="text" id="add-winner" placeholder="Add winner...">
-                <button id="add-winner-btn">Add</button>
-                <button id="remove-winner-btn">Remove Last</button>
+        <!-- Home Section -->
+        <section id="home-section" class="active-section">
+            <div id="current-question">
+                <h2>Today's Challenge</h2>
+                <div id="today-question-container"></div>
             </div>
+            <div id="overall-leaderboard">
+                <h2>Overall Leaderboard</h2>
+                <div id="leaderboard-container"></div>
+            </div>
+        </section>
+
+        <!-- Day Details Section -->
+        <section id="day-section" class="hidden">
+            <h2>Day <span id="day-number"></span></h2>
+            <div id="day-question-container"></div>
+            <div id="day-winners-container"></div>
         </section>
 
         <section id="past-questions-section" class="hidden">
