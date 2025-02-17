@@ -17,8 +17,32 @@ body {
 
 header {
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
     border-bottom: 2px solid var(--neon-blue);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+nav a {
+    color: var(--neon-blue);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: var(--secondary-color);
 }
 
 h1 {
@@ -48,7 +72,28 @@ button:hover {
     background-color: var(--neon-blue);
 }
 
-#leaderboard-section {
+.question-item,
+.winner-item {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+.question-item h3 {
+    color: var(--neon-blue);
+    margin-top: 0;
+}
+
+.winner-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#leaderboard-section,
+#past-questions-section,
+#past-winners-section {
     background-color: var(--secondary-color);
     padding: 20px;
     border-radius: 8px;
