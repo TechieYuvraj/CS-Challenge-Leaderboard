@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Cybersecurity Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>30-Day Cybersecurity Challenge</h1>
+    </header>
+    
+    <main>
+        <section id="question-section">
+            <h2>Today's Challenge</h2>
+            <div id="question-container"></div>
+            <form id="answer-form">
+                <input type="text" id="answer-input" placeholder="Your answer..." required>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="result-message"></div>
+        </section>
+
+        <button id="show-leaderboard">View Leaderboard</button>
+        
+        <section id="leaderboard-section" class="hidden">
+            <h2>Leaderboard</h2>
+            <div id="leaderboard-container"></div>
+            <div id="admin-controls" class="hidden">
+                <input type="text" id="add-winner" placeholder="Add winner...">
+                <button id="add-winner-btn">Add</button>
+                <button id="remove-winner-btn">Remove Last</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
