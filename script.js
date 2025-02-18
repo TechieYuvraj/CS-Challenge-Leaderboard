@@ -1,3 +1,17 @@
+// Global Leaderboard Data
+const globalLeaderboard = [
+    { name: "Abhinav Upadhyay", score: 120 },
+    { name: "Daivik Pratap Singh", score: 95 },
+    { name: "Pranav Sharma", score: 90 },
+    { name: "Ayushi Maheshwari", score: 85 },
+    { name: "Chitransh Mittal", score: 80 },
+    { name: "Nitya Patel", score: 75 },
+    { name: "Amrit Kumawat", score: 70 },
+    { name: "Milan Jain", score: 65 },
+    { name: "Vineet Kumar", score: 60 },
+    { name: "Ritika Suman", score: 55 }
+];
+
 // Static Data Storage
 const challengeData = {
     days: [
@@ -124,41 +138,72 @@ document.addEventListener('DOMContentLoaded', initPage);
 
 // Initialize page
 function initPage() {
-    displayDays();
+    displayGlobalLeaderboard();
+    displayTimeline();
     setupNavigation();
     setupEventListeners();
 }
 
-// Display all days as cards
-function displayDays() {
-    const container = document.querySelector('.cards-container');
-    if (!container) return;
+// Display global leaderboard
+function displayGlobalLeaderboard() {
+    const leaderboardList = document.querySelector('.leaderboard-list');
+    if (!leaderboardList) return;
+    
+    leaderboardList.innerHTML = globalLeaderboard.map((entry, index) => `
+        <li>
+            <span class="position">${index + 1}</span>
+            <span class="name">${entry.name}</span>
+            <span class="score">${entry.score} pts</span>
+        </li>
+    `).join('');
+}
 
-    container.innerHTML = challengeData.days.map(day => `
-        <div class="day-card">
-            <h2>Day ${day.day}</h2>
-            <div class="question">
-                <h3>Question:</h3>
-                <p>${day.question}</p>
-            </div>
-            <div class="answer">
-                <h3>Answer:</h3>
-                <p>${day.answer}</p>
-            </div>
-            <div class="winners">
-                <h3>Winners:</h3>
-                ${day.winners.length > 0 ? 
-                    day.winners.map(winner => `
-                        <div class="winner-item">
-                            <span class="position">${winner.position}</span>
-                            <span class="name">${winner.name}</span>
-                        </div>
-                    `).join('') :
-                    '<p>No winners yet!</p>'
-                }
-            </div>
+// Display timeline
+function displayTimeline() {
+    const timelineContainer = document.querySelector('.timeline-container');
+    if (!timelineContainer) return;
+
+    timelineContainer.innerHTML = challengeData.days.reverse().map(day => `
+        <div class="timeline-item" data-day="${day.day}">
+            <h3>Day ${day.day}</h3>
+            <p class="question-preview">${day.question}</p>
+            <button class="view-details">View Details</button>
         </div>
     `).join('');
+}
+
+// Show modal with day details
+function showDayDetails(day) {
+    const modalContent = document.querySelector('.modal-content');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    
+    if (!modalContent || !modalOverlay) return;
+
+    modalContent.innerHTML = `
+        <h2>Day ${day.day}</h2>
+        <div class="question">
+            <h3>Question:</h3>
+            <p>${day.question}</p>
+        </div>
+        <div class="answer">
+            <h3>Answer:</h3>
+            <p>${day.answer}</p>
+        </div>
+        <div class="winners">
+            <h3>Winners:</h3>
+            ${day.winners.length > 0 ? 
+                day.winners.map(winner => `
+                    <div class="winner-item">
+                        <span class="position">${winner.position}</span>
+                        <span class="name">${winner.name}</span>
+                    </div>
+                `).join('') :
+                '<p>No winners yet!</p>'
+            }
+        </div>
+    `;
+    
+    modalOverlay.style.display = 'flex';
 }
 
 // Update navigation to show day counts
@@ -177,16 +222,37 @@ function setupNavigation() {
 
 // Setup event listeners
 function setupEventListeners() {
-    // Day navigation click handlers
-    document.querySelectorAll('#day-navigation a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const day = parseInt(e.target.dataset.day);
+    // Timeline item click handlers
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        item.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('view-details')) return;
+            
+            const dayNumber = parseInt(item.dataset.day);
+            const day = challengeData.days.find(d => d.day === dayNumber);
             if (day) {
-                challengeData.currentDay = day;
-                displayDays();
-                setupNavigation();
+                showDayDetails(day);
             }
         });
     });
+
+    // Modal close button
+    const closeModal = document.querySelector('.close-modal');
+    if (closeModal) {
+        closeModal.addEventListener('click', () => {
+            const modalOverlay = document.querySelector('.modal-overlay');
+            if (modalOverlay) {
+                modalOverlay.style.display = 'none';
+            }
+        });
+    }
+
+    // Modal overlay click to close
+    const modalOverlay = document.querySelector('.modal-overlay');
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.style.display = 'none';
+            }
+        });
+    }
 }
