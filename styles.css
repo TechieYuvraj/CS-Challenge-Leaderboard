@@ -56,47 +56,142 @@ nav ul {
     color: var(--primary-color);
 }
 
-/* Card styles */
-.cards-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.day-card {
+/* Global Leaderboard */
+.global-leaderboard {
     background: var(--secondary-color);
+    padding: 2rem;
+    margin: 2rem 0;
     border-radius: 8px;
-    padding: 20px;
-    transition: transform 0.2s;
     border: 1px solid var(--neon-blue);
 }
 
-.day-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(88, 166, 255, 0.2);
-}
-
-.day-card h2 {
-    color: var(--neon-blue);
-    margin-bottom: 15px;
-}
-
-.day-card .question {
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
-
-.day-card .answer {
-    color: var(--text-color);
-    margin-bottom: 15px;
-}
-
-.winners-list {
+.leaderboard-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 1rem 0;
+}
+
+.leaderboard-list li {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    background: var(--primary-color);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--neon-blue);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--neon-blue);
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-container {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.timeline-item {
+    background: var(--secondary-color);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--neon-blue);
+    position: relative;
+    width: 45%;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+}
+
+.timeline-item:nth-child(even) {
+    left: 55%;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--neon-blue);
+    top: 1.5rem;
+    right: -10px;
+}
+
+.timeline-item:nth-child(even)::before {
+    left: -10px;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    border: 1px solid var(--neon-blue);
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--neon-blue);
+}
+
+.close-modal:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        width: 80%;
+        left: 0 !important;
+    }
+    
+    .timeline-item::before {
+        left: -10px;
+    }
 }
 
 .winner-item {
