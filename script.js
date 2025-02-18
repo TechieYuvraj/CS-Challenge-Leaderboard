@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', initPage);
 
 // Initialize page
 function initPage() {
-    displayCurrentDay();
+    displayDays();
     setupNavigation();
     setupEventListeners();
 }
@@ -175,20 +175,6 @@ function setupNavigation() {
     }
 }
 
-// Setup navigation
-function setupNavigation() {
-    const nav = document.getElementById('day-navigation');
-    if (nav) {
-        nav.innerHTML = challengeData.days.map(day => `
-            <li>
-                <a href="#" data-day="${day.day}" class="${day.day === challengeData.currentDay ? 'active' : ''}">
-                    Day ${day.day}
-                </a>
-            </li>
-        `).join('');
-    }
-}
-
 // Setup event listeners
 function setupEventListeners() {
     // Day navigation click handlers
@@ -198,7 +184,7 @@ function setupEventListeners() {
             const day = parseInt(e.target.dataset.day);
             if (day) {
                 challengeData.currentDay = day;
-                displayCurrentDay();
+                displayDays();
                 setupNavigation();
             }
         });
