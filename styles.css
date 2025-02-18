@@ -95,10 +95,11 @@ nav ul {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background-color: var(--neon-blue);
+    width: 4px;
+    background: linear-gradient(to bottom, var(--neon-blue), var(--accent-color));
     left: 50%;
-    margin-left: -1px;
+    margin-left: -2px;
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
 }
 
 .timeline-container {
@@ -107,30 +108,31 @@ nav ul {
 }
 
 .timeline-item {
-    background: var(--secondary-color);
+    background: linear-gradient(145deg, var(--secondary-color), var(--primary-color));
     padding: 1.5rem;
     margin: 2rem 0;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid var(--neon-blue);
     position: relative;
     width: 45%;
     transform: perspective(1000px) rotateY(0deg);
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px rgba(88, 166, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(88, 166, 255, 0.2);
 }
 
 .timeline-item:hover {
-    transform: perspective(1000px) rotateY(5deg);
-    box-shadow: 0 0 25px rgba(88, 166, 255, 0.3);
+    transform: perspective(1000px) rotateY(5deg) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(88, 166, 255, 0.4);
     z-index: 1;
+    background: linear-gradient(145deg, var(--secondary-color), var(--accent-color));
 }
 
 .timeline-item:nth-child(odd) {
-    left: -5%;
+    left: -3%;
 }
 
 .timeline-item:nth-child(even) {
-    left: 5%;
+    left: 51%;
 }
 
 .timeline-item::after {
@@ -157,12 +159,20 @@ nav ul {
 .timeline-item::before {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
-    background: var(--neon-blue);
+    background: radial-gradient(circle, var(--neon-blue), var(--accent-color));
     top: 1.5rem;
-    right: -10px;
+    right: -12px;
+    border: 2px solid var(--secondary-color);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.3);
+}
+
+.timeline-item:hover::before {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.5);
 }
 
 .timeline-item:nth-child(even)::before {
