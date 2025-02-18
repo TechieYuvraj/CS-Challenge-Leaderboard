@@ -154,14 +154,6 @@ nav ul {
     border-color: transparent var(--secondary-color) transparent transparent;
 }
 
-.timeline-item:nth-child(odd) {
-    left: 0;
-}
-
-.timeline-item:nth-child(even) {
-    left: 55%;
-}
-
 .timeline-item::before {
     content: '';
     position: absolute;
