@@ -114,6 +114,44 @@ nav ul {
     border: 1px solid var(--neon-blue);
     position: relative;
     width: 45%;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.1);
+}
+
+.timeline-item:hover {
+    transform: perspective(1000px) rotateY(5deg);
+    box-shadow: 0 0 25px rgba(88, 166, 255, 0.3);
+    z-index: 1;
+}
+
+.timeline-item:nth-child(odd) {
+    left: -5%;
+}
+
+.timeline-item:nth-child(even) {
+    left: 5%;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -15px;
+    border-width: 15px 0 15px 15px;
+    border-color: transparent transparent transparent var(--secondary-color);
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -15px;
+    border-width: 15px 15px 15px 0;
+    border-color: transparent var(--secondary-color) transparent transparent;
 }
 
 .timeline-item:nth-child(odd) {
