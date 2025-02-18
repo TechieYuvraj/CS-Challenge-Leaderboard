@@ -21,7 +21,7 @@ async function initializeFirebase() {
     try {
         const { initializeApp } = await import('https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js');
         const { getAuth } = await import('https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js');
-        const { getFirestore, collection, getDocs } = await import('https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js');
+        const { getFirestore, collection, getDocs, addDoc, serverTimestamp } = await import('https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js');
         
         const app = initializeApp(firebaseConfig);
         auth = getAuth(app);
@@ -147,6 +147,16 @@ function displayPastQuestions() {
         .join('');
 }
 
+// Setup day navigation
+function setupDayNavigation() {
+    const nav = document.getElementById('day-navigation');
+    if (nav) {
+        nav.innerHTML = pastQuestions.map(q => `
+            <li><a href="#" data-day="${q.day}">Day ${q.day}</a></li>
+        `).join('');
+    }
+}
+
 // Setup event listeners
 function setupEventListeners() {
     // Admin login
@@ -166,11 +176,12 @@ function setupEventListeners() {
         const answer = document.getElementById('correct-answer').value;
         if (question && answer) {
             try {
-                await db.collection('questions').add({
+                const questionsCollection = collection(db, 'questions');
+                await addDoc(questionsCollection, {
                     day: pastQuestions.length + 1,
                     question: question,
                     answer: answer,
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    timestamp: serverTimestamp()
                 });
                 loadPastQuestions();
                 document.getElementById('new-question').value = '';
@@ -186,10 +197,11 @@ function setupEventListeners() {
         const winnerName = document.getElementById('winner-name').value;
         if (winnerName) {
             try {
-                await db.collection('leaderboard').add({
+                const leaderboardCollection = collection(db, 'leaderboard');
+                await addDoc(leaderboardCollection, {
                     name: winnerName,
                     score: 0,
-                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    timestamp: serverTimestamp()
                 });
                 loadLeaderboard();
                 document.getElementById('winner-name').value = '';
