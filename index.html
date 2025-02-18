@@ -3,96 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>30-Day Cybersecurity Challenge</title>
+    <title>CS Challenge Leaderboard</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>30-Day Cybersecurity Challenge</h1>
+        <h1>CS Challenge Leaderboard</h1>
         <nav>
             <ul id="day-navigation">
                 <!-- Days will be populated dynamically -->
             </ul>
-            <ul>
-                <li><a href="#" id="nav-home">Home</a></li>
-                <li><a href="#" id="nav-admin">Admin</a></li>
-            </ul>
         </nav>
     </header>
-    
+
     <main>
-        <!-- Home Section -->
-        <section id="home-section" class="active-section">
-            <div id="current-question">
-                <h2>Today's Challenge</h2>
-                <div id="today-question-container"></div>
-            </div>
-            <div id="overall-leaderboard">
-                <h2>Overall Leaderboard</h2>
-                <div id="leaderboard-container"></div>
-            </div>
-        </section>
-
-        <!-- Day Details Section -->
-        <section id="day-section" class="hidden">
-            <h2>Day <span id="day-number"></span></h2>
-            <div id="day-question-container"></div>
-            <div id="day-winners-container"></div>
-        </section>
-
-        <section id="past-questions-section" class="hidden">
-            <h2>Past Questions and Answers</h2>
-            <div id="past-questions-container"></div>
-        </section>
-
-        <section id="past-winners-section" class="hidden">
-            <h2>Past Winners</h2>
-            <div id="past-winners-container"></div>
-        </section>
-
-        <!-- Admin Section -->
-        <section id="admin-section" class="hidden">
-            <h2>Admin Panel</h2>
-            <div id="login-form">
-                <input type="email" id="admin-email" placeholder="Email">
-                <input type="password" id="admin-password" placeholder="Password">
-                <button id="login-btn">Login</button>
-            </div>
-            <div id="admin-panel" class="hidden">
-                <h3>Add New Question</h3>
-                <textarea id="new-question" placeholder="Enter question"></textarea>
-                <input type="text" id="correct-answer" placeholder="Correct answer">
-                <button id="add-question-btn">Add Question</button>
-                
-                <h3>Add Winner</h3>
-                <input type="text" id="winner-name" placeholder="Winner's name">
-                <button id="add-winner-btn">Add Winner</button>
-            </div>
+        <section id="current-day-container">
+            <!-- Current day content will be populated by JavaScript -->
         </section>
     </main>
 
-    <!-- Add Firebase SDKs -->
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-      import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
-      import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+    <footer>
+        <p>© 2023 CS Challenge Leaderboard</p>
+    </footer>
 
-      const firebaseConfig = {
-        apiKey: "AIzaSyC-GTspIThGlYbuE0zoLST3b9No2tkLwmw",
-        authDomain: "cs-challenge-leaderboard.firebaseapp.com",
-        projectId: "cs-challenge-leaderboard",
-        storageBucket: "cs-challenge-leaderboard.appspot.com",
-        messagingSenderId: "955629714923",
-        appId: "1:955629714923:web:435d1982eb6042d12a2dae",
-        measurementId: "G-B9ZZG440B6"
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      const db = getFirestore(app);
-    </script>
-    
-    <script src="script.js" type="module"></script>
+    <script src="script.js"></script>
 </body>
 </html>
