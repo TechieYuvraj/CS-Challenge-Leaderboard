@@ -87,11 +87,36 @@ const challengeData = {
         {
             day: 7,
             question: "What is the most common type of malware delivered through email attachments?",
+            answer: "Trojan malware is the #1 cyber threat via email attachments! Stay alert, verify links, and never open unknown files. Hackers love tricking people—don't fall for it!",
+            winners: [
+                { position: "🔹", name: "Abhinav Upadhyay" },
+                { position: "🔹", name: "Parul Sharma" },
+                { position: "🔹", name: "Kovid Gupta" },
+                { position: "🔹", name: "Amrit Kumawat" },
+                { position: "🔹", name: "Akash Jain" },
+                { position: "🔹", name: "Nitya Patel" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Daksh Jain" },
+                { position: "🔹", name: "Khushal Gupta" },
+                { position: "🔹", name: "Ayushi Swami" },
+                { position: "🔹", name: "Daivik Pratap Singh" },
+                { position: "🔹", name: "Anshita Gautam" },
+                { position: "🔹", name: "Manish Jangid" },
+                { position: "🔹", name: "Gourav Dubey" },
+                { position: "🔹", name: "Shruti Jain" },
+                { position: "🔹", name: "Anirudh Gandhi" },
+                { position: "🔹", name: "Akash Kumar" },
+                { position: "🔹", name: "Alok Kumar" }
+            ]
+        },
+        {
+            day: 8,
+            question: "I can track your online activity, collect your data, and display targeted ads—without you even noticing me. What am I?",
             answer: "Coming soon...",
             winners: []
         }
     ],
-    currentDay: 7
+    currentDay: 8
 };
 
 // Initialize when DOM is loaded
