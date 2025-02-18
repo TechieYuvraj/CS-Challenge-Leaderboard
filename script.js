@@ -129,28 +129,27 @@ function initPage() {
     setupEventListeners();
 }
 
-// Display current day's content
-function displayCurrentDay() {
-    const currentDayData = challengeData.days.find(day => day.day === challengeData.currentDay);
-    if (!currentDayData) return;
+// Display all days as cards
+function displayDays() {
+    const container = document.querySelector('.cards-container');
+    if (!container) return;
 
-    const container = document.getElementById('current-day-container');
-    if (container) {
-        container.innerHTML = `
-            <h2>Day ${currentDayData.day}</h2>
+    container.innerHTML = challengeData.days.map(day => `
+        <div class="day-card">
+            <h2>Day ${day.day}</h2>
             <div class="question">
                 <h3>Question:</h3>
-                <p>${currentDayData.question}</p>
+                <p>${day.question}</p>
             </div>
             <div class="answer">
                 <h3>Answer:</h3>
-                <p>${currentDayData.answer}</p>
+                <p>${day.answer}</p>
             </div>
             <div class="winners">
                 <h3>Winners:</h3>
-                ${currentDayData.winners.length > 0 ? 
-                    currentDayData.winners.map(winner => `
-                        <div class="winner">
+                ${day.winners.length > 0 ? 
+                    day.winners.map(winner => `
+                        <div class="winner-item">
                             <span class="position">${winner.position}</span>
                             <span class="name">${winner.name}</span>
                         </div>
@@ -158,7 +157,21 @@ function displayCurrentDay() {
                     '<p>No winners yet!</p>'
                 }
             </div>
-        `;
+        </div>
+    `).join('');
+}
+
+// Update navigation to show day counts
+function setupNavigation() {
+    const nav = document.getElementById('day-navigation');
+    if (nav) {
+        nav.innerHTML = challengeData.days.map(day => `
+            <li>
+                <a href="#" data-day="${day.day}" class="${day.day === challengeData.currentDay ? 'active' : ''}">
+                    Day ${day.day}
+                </a>
+            </li>
+        `).join('');
     }
 }
 
