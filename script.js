@@ -1,216 +1,168 @@
-// Firebase Configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyC-GTspIThGlYbuE0zoLST3b9No2tkLwmw",
-    authDomain: "cs-challenge-leaderboard.firebaseapp.com",
-    projectId: "cs-challenge-leaderboard",
-    storageBucket: "cs-challenge-leaderboard.appspot.com",
-    messagingSenderId: "955629714923",
-    appId: "1:955629714923:web:435d1982eb6042d12a2dae",
-    measurementId: "G-B9ZZG440B6"
+// Static Data Storage
+const challengeData = {
+    days: [
+        {
+            day: 1,
+            question: "Where do all deleted files go?",
+            answer: "Nowhere {Deleted files don't really get deleted!}",
+            winners: [
+                { position: "🥇", name: "Ritika Suman" },
+                { position: "🥈", name: "Suman Singh" },
+                { position: "🥉", name: "Vineet Kumar" },
+                { position: "🎖", name: "Sahil Vaishnav" },
+                { position: "🎖", name: "Manish Jangid" },
+                { position: "🎖", name: "Abhinav Upadhyay" },
+                { position: "🎖", name: "Shyam Ji Singh" }
+            ]
+        },
+        {
+            day: 2,
+            question: "What's the only secure password?",
+            answer: "The only truly secure password is... well, one that doesn't exist!",
+            winners: [
+                { position: "🥇", name: "Abhinav Upadhyay" },
+                { position: "🥈", name: "Pranav Sharma" },
+                { position: "🥉", name: "Milan Jain" },
+                { position: "🎖", name: "Daivik Pratap Singh" },
+                { position: "🎖", name: "Aditya Agrawal" },
+                { position: "🎖", name: "Tanushka Saxena" }
+            ]
+        },
+        {
+            day: 3,
+            question: "What's the most common vulnerability?",
+            answer: "The most common vulnerability is... the human factor!",
+            winners: [
+                { position: "🥇", name: "Abhinav Upadhyay" },
+                { position: "🥈", name: "Milan Sharma" }
+            ]
+        },
+        {
+            day: 4,
+            question: "Where should you enter your password without checking the URL?",
+            answer: "The only right answer was: Nowhere! ❌🔑 Always check the URL before entering your password!",
+            winners: [
+                { position: "🥇", name: "Abhinav Upadhyay" },
+                { position: "🥈", name: "Pranav Sharma" },
+                { position: "🥉", name: "Vineet Kumar" },
+                { position: "🎖", name: "Ayushi Maheshwari" },
+                { position: "🎖", name: "Kartik Maheshwari" },
+                { position: "🎖", name: "Chitransh Mittal" },
+                { position: "🎖", name: "Daivik Pratap Singh" }
+            ]
+        },
+        {
+            day: 5,
+            question: "What's the safest way to store your passwords?",
+            answer: "While password managers are highly recommended for security, their insights remind us that no system is perfect, and using multi-layered protection (like 2FA & strong memory skills) is also crucial!",
+            winners: [
+                { position: "🥇", name: "Chitransh Mittal" },
+                { position: "🥈", name: "Ayushi Maheshwari" },
+                { position: "🥉", name: "Nitya Patel" },
+                { position: "🎖", name: "Amrit Kumawat" },
+                { position: "🎖", name: "Pranav Sharma" }
+            ]
+        },
+        {
+            day: 6,
+            question: "If a website's URL starts with 'http' instead of 'https', what risk are you facing?",
+            answer: "Data transmission is not encrypted, making it vulnerable to Man-in-the-Middle (MITM) attacks.",
+            winners: [
+                { position: "🥇", name: "Abhinav Upadhyay" },
+                { position: "🥈", name: "Daivik Pratap Singh" },
+                { position: "🥉", name: "Ayushi Maheshwari" },
+                { position: "🎖", name: "Tanshi Arora" },
+                { position: "🎖", name: "Nitya Patel" },
+                { position: "🎖", name: "Saksham Garg" },
+                { position: "🎖", name: "Ayushman Bosu Roy" },
+                { position: "🎖", name: "Anjali Jain" },
+                { position: "🎖", name: "Charvi Chittora" },
+                { position: "🎖", name: "Akash Jain" },
+                { position: "🎖", name: "Daksh Jain" },
+                { position: "🎖", name: "Anshita Gautam" },
+                { position: "🎖", name: "Tanushka Saxena" },
+                { position: "🎖", name: "Shruti Jain" }
+            ]
+        },
+        {
+            day: 7,
+            question: "What is the most common type of malware delivered through email attachments?",
+            answer: "Coming soon...",
+            winners: []
+        }
+    ],
+    currentDay: 7
 };
 
-// Initialize Firebase
-let db;
-let auth;
-let currentUser = null;
-let currentDay = 1;
-let leaderboard = [];
-let pastQuestions = [];
-
-async function initializeFirebase() {
-    try {
-        const { initializeApp } = await import('https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js');
-        const { getAuth } = await import('https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js');
-        const { getFirestore, collection, getDocs, addDoc, serverTimestamp } = await import('https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js');
-        
-        const app = initializeApp(firebaseConfig);
-        auth = getAuth(app);
-        db = getFirestore(app);
-        init();
-    } catch (error) {
-        console.error('Firebase initialization failed:', error);
-        showError('Failed to initialize Firebase. Please try again later.');
-    }
-}
-
 // Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeFirebase);
+document.addEventListener('DOMContentLoaded', initPage);
 
 // Initialize page
-function init() {
-    // Check auth state
-    auth.onAuthStateChanged(user => {
-        currentUser = user;
-        if (user) {
-            // User is signed in
-            document.getElementById('login-form').classList.add('hidden');
-            document.getElementById('admin-panel').classList.remove('hidden');
-        } else {
-            // No user is signed in
-            document.getElementById('login-form').classList.remove('hidden');
-            document.getElementById('admin-panel').classList.add('hidden');
-        }
-    });
-
-    // Load data with loading states
-    showLoading('leaderboard-container');
-    showLoading('past-questions-container');
-    
-    Promise.all([
-        loadLeaderboard(),
-        loadPastQuestions()
-    ])
-    .then(() => {
-        setupDayNavigation();
-        showCurrentDay();
-        setupEventListeners();
-    })
-    .catch(error => {
-        console.error('Initialization error:', error);
-        showError('Failed to load data. Please try again later.');
-    });
+function initPage() {
+    displayCurrentDay();
+    setupNavigation();
+    setupEventListeners();
 }
 
-// Show loading state
-function showLoading(elementId) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.innerHTML = '<div class="loading">Loading...</div>';
-    }
-}
+// Display current day's content
+function displayCurrentDay() {
+    const currentDayData = challengeData.days.find(day => day.day === challengeData.currentDay);
+    if (!currentDayData) return;
 
-// Show error message
-function showError(message) {
-    const errorContainer = document.getElementById('error-container');
-    if (errorContainer) {
-        errorContainer.textContent = message;
-        errorContainer.classList.remove('hidden');
-    }
-}
-
-// Load leaderboard from Firestore
-async function loadLeaderboard() {
-    try {
-        const leaderboardCollection = collection(db, 'leaderboard');
-        const snapshot = await getDocs(leaderboardCollection);
-        leaderboard = snapshot.docs.map(doc => doc.data());
-        displayLeaderboard();
-    } catch (error) {
-        console.error('Error loading leaderboard:', error);
-        showError('Failed to load leaderboard. Please try again later.');
-    }
-}
-
-// Load past questions from Firestore
-async function loadPastQuestions() {
-    try {
-        const questionsCollection = collection(db, 'questions');
-        const snapshot = await getDocs(questionsCollection);
-        pastQuestions = snapshot.docs.map(doc => doc.data());
-        displayPastQuestions();
-    } catch (error) {
-        console.error('Error loading past questions:', error);
-        showError('Failed to load past questions. Please try again later.');
-    }
-}
-
-// Display leaderboard
-function displayLeaderboard() {
-    const container = document.getElementById('leaderboard-container');
-    if (!container) return;
-
-    container.innerHTML = leaderboard
-        .map((user, index) => `
-            <div class="leaderboard-item">
-                <span class="position">${index + 1}</span>
-                <span class="name">${user.name}</span>
-                <span class="score">${user.score} points</span>
+    const container = document.getElementById('current-day-container');
+    if (container) {
+        container.innerHTML = `
+            <h2>Day ${currentDayData.day}</h2>
+            <div class="question">
+                <h3>Question:</h3>
+                <p>${currentDayData.question}</p>
             </div>
-        `)
-        .join('');
-}
-
-// Display past questions
-function displayPastQuestions() {
-    const container = document.getElementById('past-questions-container');
-    if (!container) return;
-
-    container.innerHTML = pastQuestions
-        .map(q => `
-            <div class="question-item">
-                <h3>Day ${q.day}</h3>
-                <p><strong>Question:</strong> ${q.question}</p>
-                <p><strong>Answer:</strong> ${q.answer}</p>
-                <p><strong>Winners:</strong> ${q.winners.join(', ')}</p>
+            <div class="answer">
+                <h3>Answer:</h3>
+                <p>${currentDayData.answer}</p>
             </div>
-        `)
-        .join('');
+            <div class="winners">
+                <h3>Winners:</h3>
+                ${currentDayData.winners.length > 0 ? 
+                    currentDayData.winners.map(winner => `
+                        <div class="winner">
+                            <span class="position">${winner.position}</span>
+                            <span class="name">${winner.name}</span>
+                        </div>
+                    `).join('') :
+                    '<p>No winners yet!</p>'
+                }
+            </div>
+        `;
+    }
 }
 
-// Setup day navigation
-function setupDayNavigation() {
+// Setup navigation
+function setupNavigation() {
     const nav = document.getElementById('day-navigation');
     if (nav) {
-        nav.innerHTML = pastQuestions.map(q => `
-            <li><a href="#" data-day="${q.day}">Day ${q.day}</a></li>
+        nav.innerHTML = challengeData.days.map(day => `
+            <li>
+                <a href="#" data-day="${day.day}" class="${day.day === challengeData.currentDay ? 'active' : ''}">
+                    Day ${day.day}
+                </a>
+            </li>
         `).join('');
     }
 }
 
 // Setup event listeners
 function setupEventListeners() {
-    // Admin login
-    document.getElementById('login-btn').addEventListener('click', async () => {
-        const email = document.getElementById('admin-email').value;
-        const password = document.getElementById('admin-password').value;
-        try {
-            await auth.signInWithEmailAndPassword(email, password);
-        } catch (error) {
-            alert('Login failed: ' + error.message);
-        }
-    });
-
-    // Add question
-    document.getElementById('add-question-btn').addEventListener('click', async () => {
-        const question = document.getElementById('new-question').value;
-        const answer = document.getElementById('correct-answer').value;
-        if (question && answer) {
-            try {
-                const questionsCollection = collection(db, 'questions');
-                await addDoc(questionsCollection, {
-                    day: pastQuestions.length + 1,
-                    question: question,
-                    answer: answer,
-                    timestamp: serverTimestamp()
-                });
-                loadPastQuestions();
-                document.getElementById('new-question').value = '';
-                document.getElementById('correct-answer').value = '';
-            } catch (error) {
-                alert('Error adding question: ' + error.message);
+    // Day navigation click handlers
+    document.querySelectorAll('#day-navigation a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const day = parseInt(e.target.dataset.day);
+            if (day) {
+                challengeData.currentDay = day;
+                displayCurrentDay();
+                setupNavigation();
             }
-        }
-    });
-
-    // Add winner
-    document.getElementById('add-winner-btn').addEventListener('click', async () => {
-        const winnerName = document.getElementById('winner-name').value;
-        if (winnerName) {
-            try {
-                const leaderboardCollection = collection(db, 'leaderboard');
-                await addDoc(leaderboardCollection, {
-                    name: winnerName,
-                    score: 0,
-                    timestamp: serverTimestamp()
-                });
-                loadLeaderboard();
-                document.getElementById('winner-name').value = '';
-            } catch (error) {
-                alert('Error adding winner: ' + error.message);
-            }
-        }
+        });
     });
 }
-
-// Initialize the app
-init();
