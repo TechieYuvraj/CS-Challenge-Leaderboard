@@ -4,28 +4,7 @@
     --accent-color: #238636;
     --text-color: #c9d1d9;
     --neon-blue: #58a6ff;
-    --neon-glow: 0 0 5px #58a6ff, 0 0 10px #58a6ff, 0 0 20px #58a6ff;
-}
-
-@keyframes neon-pulse {
-    0%, 100% {
-        box-shadow: var(--neon-glow);
-    }
-    50% {
-        box-shadow: 0 0 10px #58a6ff, 0 0 20px #58a6ff, 0 0 40px #58a6ff;
-    }
-}
-
-.custom-cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--neon-blue);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    animation: neon-pulse 1.5s infinite ease-in-out;
-    z-index: 9999;
+    --neon-glow: 0 0 5px #58a6ff, 0 0 10px #58a6ff;
 }
 
 body {
