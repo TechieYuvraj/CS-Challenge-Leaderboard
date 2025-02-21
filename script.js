@@ -1,3 +1,14 @@
+// Create custom cursor element
+const cursor = document.createElement('div');
+cursor.classList.add('custom-cursor');
+document.body.appendChild(cursor);
+
+// Track mouse movement
+document.addEventListener('mousemove', (e) => {
+    cursor.style.left = `${e.pageX}px`;
+    cursor.style.top = `${e.pageY}px`;
+});
+
 // Global Leaderboard Data
 const globalLeaderboard = [
     { name: "Abhinav Upadhyay", score: 120 },
