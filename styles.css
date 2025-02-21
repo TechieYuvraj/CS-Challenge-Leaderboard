@@ -7,6 +7,16 @@
     --neon-glow: 0 0 5px #58a6ff, 0 0 10px #58a6ff;
 }
 
+* {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    height: 100%;
+  }
+
+  
 body {
     background-color: var(--primary-color);
     color: var(--text-color);
