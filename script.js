@@ -20,13 +20,13 @@ const challengeData = {
             question: "Where do all deleted files go?",
             answer: "Nowhere {Deleted files don't really get deleted!}",
             winners: [
-                { position: "🥇", name: "Ritika Suman" },
-                { position: "🥈", name: "Suman Singh" },
-                { position: "🥉", name: "Vineet Kumar" },
-                { position: "🎖", name: "Sahil Vaishnav" },
-                { position: "🎖", name: "Manish Jangid" },
-                { position: "🎖", name: "Abhinav Upadhyay" },
-                { position: "🎖", name: "Shyam Ji Singh" }
+                { position: "🔹", name: "Ritika Suman" },
+                { position: "🔹", name: "Suman Singh" },
+                { position: "🔹", name: "Vineet Kumar" },
+                { position: "🔹", name: "Sahil Vaishnav" },
+                { position: "🔹", name: "Manish Jangid" },
+                { position: "🔹", name: "Abhinav Upadhyay" },
+                { position: "🔹", name: "Shyam Ji Singh" }
             ]
         },
         {
@@ -34,12 +34,12 @@ const challengeData = {
             question: "What's the only secure password?",
             answer: "The only truly secure password is... well, one that doesn't exist!",
             winners: [
-                { position: "🥇", name: "Abhinav Upadhyay" },
-                { position: "🥈", name: "Pranav Sharma" },
-                { position: "🥉", name: "Milan Jain" },
-                { position: "🎖", name: "Daivik Pratap Singh" },
-                { position: "🎖", name: "Aditya Agrawal" },
-                { position: "🎖", name: "Tanushka Saxena" }
+                { position: "🔹", name: "Abhinav Upadhyay" },
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Milan Jain" },
+                { position: "🔹", name: "Daivik Pratap Singh" },
+                { position: "🔹", name: "Aditya Agrawal" },
+                { position: "🔹", name: "Tanushka Saxena" }
             ]
         },
         {
@@ -47,8 +47,8 @@ const challengeData = {
             question: "What's the most common vulnerability?",
             answer: "The most common vulnerability is... the human factor!",
             winners: [
-                { position: "🥇", name: "Abhinav Upadhyay" },
-                { position: "🥈", name: "Milan Sharma" }
+                { position: "🔹", name: "Abhinav Upadhyay" },
+                { position: "🔹", name: "Milan Sharma" }
             ]
         },
         {
@@ -56,13 +56,13 @@ const challengeData = {
             question: "Where should you enter your password without checking the URL?",
             answer: "The only right answer was: Nowhere! ❌🔑 Always check the URL before entering your password!",
             winners: [
-                { position: "🥇", name: "Abhinav Upadhyay" },
-                { position: "🥈", name: "Pranav Sharma" },
-                { position: "🥉", name: "Vineet Kumar" },
-                { position: "🎖", name: "Ayushi Maheshwari" },
-                { position: "🎖", name: "Kartik Maheshwari" },
-                { position: "🎖", name: "Chitransh Mittal" },
-                { position: "🎖", name: "Daivik Pratap Singh" }
+                { position: "🔹", name: "Abhinav Upadhyay" },
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Vineet Kumar" },
+                { position: "🔹", name: "Ayushi Maheshwari" },
+                { position: "🔹", name: "Kartik Maheshwari" },
+                { position: "🔹", name: "Chitransh Mittal" },
+                { position: "🔹", name: "Daivik Pratap Singh" }
             ]
         },
         {
@@ -70,11 +70,11 @@ const challengeData = {
             question: "What's the safest way to store your passwords?",
             answer: "While password managers are highly recommended for security, their insights remind us that no system is perfect, and using multi-layered protection (like 2FA & strong memory skills) is also crucial!",
             winners: [
-                { position: "🥇", name: "Chitransh Mittal" },
-                { position: "🥈", name: "Ayushi Maheshwari" },
-                { position: "🥉", name: "Nitya Patel" },
-                { position: "🎖", name: "Amrit Kumawat" },
-                { position: "🎖", name: "Pranav Sharma" }
+                { position: "🔹", name: "Chitransh Mittal" },
+                { position: "🔹", name: "Ayushi Maheshwari" },
+                { position: "🔹", name: "Nitya Patel" },
+                { position: "🔹", name: "Amrit Kumawat" },
+                { position: "🔹", name: "Pranav Sharma" }
             ]
         },
         {
@@ -82,20 +82,20 @@ const challengeData = {
             question: "If a website's URL starts with 'http' instead of 'https', what risk are you facing?",
             answer: "Data transmission is not encrypted, making it vulnerable to Man-in-the-Middle (MITM) attacks.",
             winners: [
-                { position: "🥇", name: "Abhinav Upadhyay" },
-                { position: "🥈", name: "Daivik Pratap Singh" },
-                { position: "🥉", name: "Ayushi Maheshwari" },
-                { position: "🎖", name: "Tanshi Arora" },
-                { position: "🎖", name: "Nitya Patel" },
-                { position: "🎖", name: "Saksham Garg" },
-                { position: "🎖", name: "Ayushman Bosu Roy" },
-                { position: "🎖", name: "Anjali Jain" },
-                { position: "🎖", name: "Charvi Chittora" },
-                { position: "🎖", name: "Akash Jain" },
-                { position: "🎖", name: "Daksh Jain" },
-                { position: "🎖", name: "Anshita Gautam" },
-                { position: "🎖", name: "Tanushka Saxena" },
-                { position: "🎖", name: "Shruti Jain" }
+                { position: "🔹", name: "Abhinav Upadhyay" },
+                { position: "🔹", name: "Daivik Pratap Singh" },
+                { position: "🔹", name: "Ayushi Maheshwari" },
+                { position: "🔹", name: "Tanshi Arora" },
+                { position: "🔹", name: "Nitya Patel" },
+                { position: "🔹", name: "Saksham Garg" },
+                { position: "🔹", name: "Ayushman Bosu Roy" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Charvi Chittora" },
+                { position: "🔹", name: "Akash Jain" },
+                { position: "🔹", name: "Daksh Jain" },
+                { position: "🔹", name: "Anshita Gautam" },
+                { position: "🔹", name: "Tanushka Saxena" },
+                { position: "🔹", name: "Shruti Jain" }
             ]
         },
         {
@@ -126,11 +126,56 @@ const challengeData = {
         {
             day: 8,
             question: "I can track your online activity, collect your data, and display targeted ads—without you even noticing me. What am I?",
-            answer: "Coming soon...",
-            winners: []
+            answer: "Spyware,Adware, and Tracking Cookie",
+            winners: [
+                { position: "🔹", name: "Abhinav Upadhyay" },
+                { position: "🔹", name: "Tanshi Arora" },
+                { position: "🔹", name: "Daivik Pratap Singh" },
+                { position: "🔹", name: "Ayushi Maheshwari" },
+                { position: "🔹", name: "Ashok Kumar" },
+                { position: "🔹", name: "Nitya Patel" },
+                { position: "🔹", name: "Rahul Kumawat" },
+                { position: "🔹", name: "Ayushi Swami" },
+                { position: "🔹", name: "Kovid Gupta" },
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Abhidha Joshi" },
+                { position: "🔹", name: "Ayush Joshi" },
+                { position: "🔹", name: "Mehul Suthar" },
+                { position: "🔹", name: "Tanushka Saxena"},
+                { position: "🔹", name: "Riya Srivastava" },
+                { position: "🔹", name: "Daksh Duhlani"}
+            ]
+        },
+        {
+            day: 9,
+            question: "I can hijack your browser, change your search results, redirect you to shady websites, and flood you with pop-up ads—without you even installing me knowingly. What am I?",
+            answer: "Browser Hijacker",
+            winners: [
+                { position: "🔹", name: "Shruti Jain" },
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Nitya Patel" },
+                { position: "🔹", name: "Abhidha Joshi" },
+                { position: "🔹", name: "Kovid Gupta" },
+                { position: "🔹", name: "Daksh Duhlani" },
+                { position: "🔹", name: "Anand Kumar Sharma" },
+                { position: "🔹", name: "Nikhil Sharma" },
+                { position: "🔹", name: "Yashashvi Audhichya" },
+                { position: "🔹", name: "Anshita Gautam" },
+                { position: "🔹", name: "Tanshi Arora" }
+            ]
+        },
+        {
+            day: 10,
+            question: "You receive an urgent email from your bank, stating that your account will be suspended unless you verify your identity immediately. The email contains a link directing you to a website that looks exactly like your bank’s official site. You notice one small but critical detail that exposes the scam. What is it? 🤔💡",
+            answer: "Comming Soon...",
+            winners: [
+                { position: "🔹", name: "Waiting to announce" }
+            ]
         }
     ],
-    currentDay: 8
+    currentDay: 10
 };
 
 // Initialize when DOM is loaded
