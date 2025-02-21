@@ -178,25 +178,6 @@ const challengeData = {
     currentDay: 10
 };
 
-function createBlastEffect(x, y) {
-    const blast = document.createElement('div');
-    blast.className = 'blast-effect';
-    document.body.appendChild(blast);
-    
-    // Position the blast effect
-    blast.style.left = `${x}px`;
-    blast.style.top = `${y}px`;
-
-    // Remove the blast effect after animation
-    setTimeout(() => {
-        blast.remove();
-    }, 1000); // Duration of the animation
-}
-
-document.addEventListener('click', (event) => {
-    createBlastEffect(event.clientX, event.clientY);
-});
-
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initPage);
 
