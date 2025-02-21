@@ -66,8 +66,6 @@ nav ul {
 }
 
 .leaderboard-list {
-    transform: rise;
-    box-shadow: 0 8px 25px rgba(88, 166, 255, 0.4);
     list-style: none;
     padding: 0;
     margin: 1rem 0;
@@ -82,6 +80,12 @@ nav ul {
     justify-content: space-between;
     align-items: center;
     border: 1px solid var(--neon-blue);
+}
+
+.leaderboard-list li:hover {
+    transform: scale3d(1.05,1.05,1.05);
+    transition-duration: 0.3s;
+    box-shadow: 0 8px 25px rgba(88, 166, 255, 0.4);
 }
 
 /* Timeline */
@@ -164,7 +168,7 @@ nav ul {
 }
 
 .timeline-item:hover::before {
-    transform: scale(1.1);
+    transform: scale(1.4);
     box-shadow: 0 0 15px rgba(88, 166, 255, 0.5);
 }
 
