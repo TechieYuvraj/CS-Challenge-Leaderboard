@@ -52,8 +52,9 @@ nav ul {
 }
 
 #day-navigation a:hover {
-    background-color: var(--neon-blue);
-    color: var(--primary-color);
+    transform: scale3d(1.05,1.05,1.05);
+    transition-duration: 0.3s;
+    box-shadow: 0 8px 25px rgba(88, 166, 255, 0.4);
 }
 
 /* Global Leaderboard */
@@ -99,7 +100,7 @@ nav ul {
 .timeline::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: -33px;
     bottom: 0;
     width: 4px;
     background: linear-gradient(to bottom, var(--neon-blue), var(--accent-color));
