@@ -135,15 +135,6 @@ nav ul {
     left: 51%;
 }
 
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    top: 1.5rem;
-    width: 0;
-    height: 0;
-    border-style: solid;
-}
-
 .timeline-item:nth-child(odd)::after {
     right: -15px;
     border-width: 15px 0 15px 15px;
@@ -235,6 +226,12 @@ nav ul {
     .timeline-item {
         width: 80%;
         left: 0 !important;
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    
+    .timeline-item:hover {
+        transform: perspective(1000px) rotateY(5deg) translateY(-5px);
+        box-shadow: 0 8px 25px rgba(88, 166, 255, 0.4);
     }
     
     .timeline-item::before {
@@ -329,7 +326,6 @@ main {
     margin: 0 auto;
     padding: 20px;
 }
-
 
 button {
     background-color: var(--accent-color);
@@ -451,8 +447,6 @@ button:hover {
     h1 {
         font-size: 2rem;
     }
-    
-    
     
     button {
         width: 100%;
