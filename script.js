@@ -1,12 +1,18 @@
+console.log("Custom cursor element created.");
+
 // Create custom cursor element
 const cursor = document.createElement('div');
 cursor.classList.add('custom-cursor');
 document.body.appendChild(cursor);
 
+console.log("Mouse move event listener added.");
+
 // Track mouse movement
 document.addEventListener('mousemove', (e) => {
+    console.log(`Mouse moved to: ${e.pageX}, ${e.pageY}`);
     cursor.style.left = `${e.pageX}px`;
     cursor.style.top = `${e.pageY}px`;
+    console.log("Custom cursor position updated.");
 });
 
 // Global Leaderboard Data
