@@ -1,6 +1,3 @@
-// Global Leaderboard Data
-let globalLeaderboard = []; // Initialize empty. Will be updated with actual data on page load.
-
 // Static Data Storage
 const challengeData = {
     days: [
@@ -324,6 +321,9 @@ const challengeData = {
     ],
     currentDay: 20
 };
+
+// Global leaderboard data
+let globalLeaderboard = [];
 
 function updateLeaderboardScores() {
     const nameCount = {};
