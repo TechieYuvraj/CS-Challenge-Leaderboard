@@ -371,8 +371,11 @@ function displayGlobalLeaderboard() {
         return;
     }
 
+    // Slice top 10 players
+    const top10Players = globalLeaderboard.slice(0, 10);
+
     // Dynamically create the leaderboard
-    leaderboardList.innerHTML = globalLeaderboard.map((entry, index) => `
+    leaderboardList.innerHTML = top10Players.map((entry, index) => `
         <li>
             <span class="position">${index + 1}</span>
             <span class="name">${entry.name}</span>
@@ -380,6 +383,7 @@ function displayGlobalLeaderboard() {
         </li>
     `).join('');
 }
+
 
 // Display timeline
 function displayTimeline() {
