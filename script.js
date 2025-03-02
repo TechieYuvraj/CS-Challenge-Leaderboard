@@ -169,13 +169,171 @@ const challengeData = {
         {
             day: 10,
             question: "You receive an urgent email from your bank, stating that your account will be suspended unless you verify your identity immediately. The email contains a link directing you to a website that looks exactly like your bank’s official site. You notice one small but critical detail that exposes the scam. What is it? 🤔💡",
-            answer: "Comming Soon...",
+            answer: "URL Mismatch (Look for a Fake Domain!)",
             winners: [
-                { position: "🔹", name: "Waiting to announce" }
+                { position: "🔹", name: "Shruti Jain" },
+                { position: "🔹", name: "Rahul Kumawat" },
+                { position: "🔹", name: "Anshita Gautam" },
+                { position: "🔹", name: "Nikhil Sharma" },
+                { position: "🔹", name: "Anuj Sharma" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Nitya Patel" },
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Ayushi Swami" },
+                { position: "🔹", name: "Daksh Duhlani" }
+            ]
+        },
+        {
+            day: 11,
+            question: "You're using public WiFi at a coffee shop when you receive a pop-up saying: \"Security Alert! Your device is at risk. Click here to fix the issue immediately.\" What should you do next? 🤔 A. Click the link immediately to remove the threat. B. Download an antivirus suggested in the pop-up. C. Ignore it—it’s just a random pop-up. D. None of the above. (If so, explain why?)",
+            answer: "Option D (This pop-up is most likely a fake security alert—a scareware tactic used by hackers to trick users into clicking malicious links or downloading malware.)",
+            winners: [
+                { position: "🔹", name: "Daivik Pratap Singh" },
+                { position: "🔹", name: "Anshita Gautam" },
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Nikhil Sharma" },
+                { position: "🔹", name: "Nitya Patel" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Ayushi Swami" },
+                { position: "🔹", name: "Daksh Duhlani" },
+                { position: "🔹", name: "Shruti Jain" },
+                { position: "🔹", name: "Swaraj Kamewal" }
+            ]
+        },
+        {
+            day: 12,
+            question: "A hacker gains access to your email account. What’s the FIRST thing you should do? 🤔 A. Call your friend for advice. B. Send an email to warn your contacts. C. Create a new email account and forget about the old one. D. None of the above. (Explain Why?)",
+            answer: "Best Response Instead (What to Do First!) 1️. Immediately change your email password. (Use a strong, unique password). 2️. Enable Two-Factor Authentication (2FA). (This adds an extra security layer).",
+            winners: [
+                { position: "🔹", name: "Shruti Jain" },
+                { position: "🔹", name: "Milan Jain" },
+                { position: "🔹", name: "Sahil Vaishnav" },
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Nikhil Sharma" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Ayushi Swami" },
+                { position: "🔹", name: "Ajmeri" }
+            ]
+        },
+        {
+            day: 13,
+            question: "You're setting up a new online account, and the website forces you to use a long, complex password that includes uppercase, lowercase, numbers, and special characters. However, you find it difficult to remember. What should you do? 🤔 A. Write it down on a piece of paper and keep it safe. B. Use the same password you've used before to make it easier to remember. C. Store it in your browser's autofill. D. None of the above. (If so, explain why?)",
+            answer: "D. Use a trusted password manager (e.g., Bitwarden, 1Password, or KeePass) to securely store and autofill passwords.",
+            winners: [
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Ayushi Swami" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Kanchan Prajapat" }
+            ]
+        },
+        {
+            day: 14,
+            question: "You're logging into an important online account, but you realize that Two-Factor Authentication (2FA) is not enabled. What’s the BEST action to take? 🤔 A. It’s fine, my password is strong enough. B. Enable 2FA using SMS verification. C. Enable 2FA using an authenticator app (e.g., Google Authenticator, Authy). D. None of the above. (If so, explain why?)",
+            answer: "C. Enable 2FA using an authenticator app (e.g., Google Authenticator, Authy).",
+            winners: [
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Nikhil Sharma" },
+                { position: "🔹", name: "Krishna Sharma" },
+                { position: "🔹", name: "Harshit Rajguru" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Akash Kumar" },
+                { position: "🔹", name: "Shruti Jain" }
+            ]
+        },
+        {
+            day: 15,
+            question: "You're setting up a new online account, and the website asks you to create a password. Which of the following is the WORST choice? 🤔 A. P@$$w0rd123 B. MyDogCharlie2024 C. jX8$2nD!qY7%tZ D. A randomly generated password from a password manager",
+            answer: "A. \"P@$$w0rd123\" (Worst Choice!) → This looks complex but is actually weak because: It follows common password patterns (e.g., replacing letters with symbols). \"Password123\" is one of the most commonly used and hacked passwords. Hackers use dictionary attacks to easily guess such variations.",
+            winners: [
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Swaraj Kamewal" },
+                { position: "🔹", name: "Rishabh Dadhich" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Daksh Duhlani" }
+            ]
+        },
+        {
+            day: 16,
+            question: "You're browsing the internet when a pop-up appears saying: \"Congratulations! You've won a brand-new iPhone 🎉! Click here to claim your prize now!\" What should you do? 🤔 A. Click the link immediately—free stuff is always great! B. Enter your details to see if it's real. C. Ignore the pop-up and close the tab. D. Report it as a scam and warn others.",
+            answer: "The correct answers are: 🔹 C. Ignore the pop-up and close the tab. 🔹 D. Report it as a scam and warn others. 💡 Why? 🚨 Fake giveaway scams are one of the most common phishing tactics used by cybercriminals to steal personal data.",
+            winners: [
+                { position: "🔹", name: "Priyansh Sehgal" },
+                { position: "🔹", name: "Shruti Jain" },
+                { position: "🔹", name: "Milan Jain" },
+                { position: "🔹", name: "Rudra Pratap" },
+                { position: "🔹", name: "Rishabh Dadhich" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Chitransh Mittal" },
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Krishna Sharma" },
+                { position: "🔹", name: "Kanchan Prajapat" },
+                { position: "🔹", name: "Lakshya Limba" },
+                { position: "🔹", name: "Amrit Kumawat" },
+                { position: "🔹", name: "Harshit Rajguru" },
+                { position: "🔹", name: "Ashok Kumar" },
+                { position: "🔹", name: "Nikhil Sharma" },
+                { position: "🔹", name: "Daksh Duhlani" }
+            ]
+        },
+        {
+            day: 17,
+            question: "A hacker tricks you into running a seemingly harmless file, but in the background, it silently installs malware on your system. What is this attack technique called? 🤔",
+            answer: "Winners: Mrityunjay Singh, Pranav Sharma, Krishna Sharma, Abhinav Upadhyay, Tanya Namdev, Nikhil Sharma, Anjali Jain, Amrit Kumawat, Surendra Singh, Daksh Duhlani",
+            winners: [
+                { position: "🔹", name: "Mrityunjay Singh" },
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Krishna Sharma" },
+                { position: "🔹", name: "Abhinav Upadhyay" },
+                { position: "🔹", name: "Tanya Namdev" },
+                { position: "🔹", name: "Nikhil Sharma" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Amrit Kumawat" },
+                { position: "🔹", name: "Surendra Singh" },
+                { position: "🔹", name: "Daksh Duhlani" }
+            ]
+        },
+        {
+            day: 18,
+            question: "A hacker tricks you into revealing your bank details by pretending to be your bank’s official representative. What type of cyber attack is this? 🤔",
+            answer: "Phishing Attack",
+            winners: [
+                { position: "🔹", name: "Shruti Jain" },
+                { position: "🔹", name: "Sahil Yaduvanshi" },
+                { position: "🔹", name: "Surendra Singh" },
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Krishna Sharma" },
+                { position: "🔹", name: "Amrit Kumawat" },
+                { position: "🔹", name: "Ayushi Swami" },
+                { position: "🔹", name: "Abhinav Upadhyay" },
+                { position: "🔹", name: "Rishabh Dadhich" },
+                { position: "🔹", name: "Daksh Duhlani" },
+                { position: "🔹", name: "Ashwin Yadav" }
+            ]
+        },
+        {
+            day: 19,
+            question: "A company’s internal database was breached, but there was no malware detected, no phishing attack reported, and no sign of brute force attempts. The attackers simply logged in with valid employee credentials.",
+            answer: "Since Credential Stuffing Attack is the most direct answer but Insider Attack is also a reasonable cybersecurity risk in this scenario, you can consider both as correct. ✔️ Primary Answer: Credential Stuffing Attack ✔️ Also Acceptable: Insider Attack (since an insider could intentionally misuse credentials)",
+            winners: [
+                { position: "🔹", name: "Pranav Shaarma" },
+                { position: "🔹", name: "Amrit Kumawat" },
+                { position: "🔹", name: "Ashwani Yadav" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Daksh Duhlani" },
+                { position: "🔹", name: "Shruti Jain" }
+            ]
+        },
+        {
+            day: 20,
+            question: "Which cybersecurity technique involves adding random data to passwords before hashing them to make them more resistant to attacks? A) Salting B) Hashing C) Encryption D) Tokenization",
+            answer: "Yet to reveal...",
+            winners: [
+                { position: "🔹", name: "Waiting..." }
             ]
         }
     ],
-    currentDay: 10
+    currentDay: 20
 };
 
 // Initialize when DOM is loaded
