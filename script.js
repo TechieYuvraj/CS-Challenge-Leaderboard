@@ -255,7 +255,7 @@ const challengeData = {
         {
             day: 16,
             question: "You're browsing the internet when a pop-up appears saying: \"Congratulations! You've won a brand-new iPhone 🎉! Click here to claim your prize now!\" What should you do? 🤔 A. Click the link immediately—free stuff is always great! B. Enter your details to see if it's real. C. Ignore the pop-up and close the tab. D. Report it as a scam and warn others.",
-            answer: "The correct answers are: 🔹 C. Ignore the pop-up and close the tab. 🔹 D. Report it as a scam and warn others. 💡 Why? 🚨 Fake giveaway scams are one of the most common phishing tactics used by cybercriminals to steal personal data.",
+            answer: "The correct answers are: C. Ignore the pop-up and close the tab. D. Report it as a scam and warn others. 💡 Why? 🚨 Fake giveaway scams are one of the most common phishing tactics used by cybercriminals to steal personal data.",
             winners: [
                 { position: "🔹", name: "Priyansh Sehgal" },
                 { position: "🔹", name: "Shruti Jain" },
