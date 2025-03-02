@@ -325,6 +325,14 @@ const challengeData = {
 // Global leaderboard data
 let globalLeaderboard = [];
 
+// Function to show the current day's question in the modal
+function showCurrentDayQuestion() {
+    const currentDayData = challengeData.days.find(day => day.day === challengeData.currentDay);
+    if (currentDayData) {
+        showDayDetails(currentDayData);
+    }
+}
+
 function updateLeaderboardScores() {
     const nameCount = {};
 
@@ -356,6 +364,7 @@ function initPage() {
     displayTimeline();
     setupNavigation();
     setupEventListeners();
+    showCurrentDayQuestion(); // Show the current day's question in the modal
 }
 
 function displayGlobalLeaderboard() {
