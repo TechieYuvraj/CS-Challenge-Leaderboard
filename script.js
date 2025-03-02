@@ -142,9 +142,9 @@ const challengeData = {
                 { position: "🔹", name: "Abhidha Joshi" },
                 { position: "🔹", name: "Ayush Joshi" },
                 { position: "🔹", name: "Mehul Suthar" },
-                { position: "🔹", name: "Tanushka Saxena"},
+                { position: "🔹", name: "Tanushka Saxena" },
                 { position: "🔹", name: "Riya Srivastava" },
-                { position: "🔹", name: "Daksh Duhlani"}
+                { position: "🔹", name: "Daksh Duhlani" }
             ]
         },
         {
@@ -351,7 +351,7 @@ function initPage() {
 function displayGlobalLeaderboard() {
     const leaderboardList = document.querySelector('.leaderboard-list');
     if (!leaderboardList) return;
-    
+
     leaderboardList.innerHTML = globalLeaderboard.map((entry, index) => `
         <li>
             <span class="position">${index + 1}</span>
@@ -379,7 +379,7 @@ function displayTimeline() {
 function showDayDetails(day) {
     const modalContent = document.querySelector('.modal-content');
     const modalOverlay = document.querySelector('.modal-overlay');
-    
+
     if (!modalContent || !modalOverlay) return;
 
     modalContent.innerHTML = `
@@ -394,18 +394,18 @@ function showDayDetails(day) {
         </div>
         <div class="winners">
             <h3>Winners:</h3>
-            ${day.winners.length > 0 ? 
-                day.winners.map(winner => `
+            ${day.winners.length > 0 ?
+            day.winners.map(winner => `
                     <div class="winner-item">
                         <span class="position">${winner.position}</span>
                         <span class="name">${winner.name}</span>
                     </div>
                 `).join('') :
-                '<p>No winners yet!</p>'
-            }
+            '<p>No winners yet!</p>'
+        }
         </div>
     `;
-    
+
     modalOverlay.style.display = 'flex';
 }
 
@@ -429,7 +429,7 @@ function setupEventListeners() {
     document.querySelectorAll('.timeline-item').forEach(item => {
         item.addEventListener('click', (e) => {
             if (!e.target.classList.contains('view-details')) return;
-            
+
             const dayNumber = parseInt(item.dataset.day);
             const day = challengeData.days.find(d => d.day === dayNumber);
             if (day) {
