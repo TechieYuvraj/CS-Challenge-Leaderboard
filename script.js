@@ -1,16 +1,5 @@
 // Global Leaderboard Data
-const globalLeaderboard = [
-    { name: "Abhinav Upadhyay", score: 0 },
-    { name: "Daivik Pratap Singh", score: 0 },
-    { name: "Pranav Sharma", score: 0 },
-    { name: "Ayushi Maheshwari", score: 0 },
-    { name: "Chitransh Mittal", score: 0 },
-    { name: "Nitya Patel", score: 0 },
-    { name: "Amrit Kumawat", score: 0 },
-    { name: "Milan Jain", score: 0 },
-    { name: "Vineet Kumar", score: 0 },
-    { name: "Ritika Suman", score: 0 }
-];
+let globalLeaderboard = []; // Initialize empty. Will be updated with actual data on page load.
 
 // Static Data Storage
 const challengeData = {
@@ -316,9 +305,9 @@ const challengeData = {
             question: "A company’s internal database was breached, but there was no malware detected, no phishing attack reported, and no sign of brute force attempts. The attackers simply logged in with valid employee credentials.",
             answer: "Since Credential Stuffing Attack is the most direct answer but Insider Attack is also a reasonable cybersecurity risk in this scenario, you can consider both as correct. ✔️ Primary Answer: Credential Stuffing Attack ✔️ Also Acceptable: Insider Attack (since an insider could intentionally misuse credentials)",
             winners: [
-                { position: "🔹", name: "Pranav Shaarma" },
+                { position: "🔹", name: "Pranav Sharma" },
                 { position: "🔹", name: "Amrit Kumawat" },
-                { position: "🔹", name: "Ashwani Yadav" },
+                { position: "🔹", name: "Ashwin Yadav" },
                 { position: "🔹", name: "Anjali Jain" },
                 { position: "🔹", name: "Daksh Duhlani" },
                 { position: "🔹", name: "Shruti Jain" }
@@ -346,14 +335,11 @@ function updateLeaderboardScores() {
         });
     });
 
-    // Update scores in the global leaderboard, ensuring max score does not exceed 200
-    globalLeaderboard.forEach(entry => {
-        if (nameCount[entry.name]) {
-            const occurrences = nameCount[entry.name];
-            const scoreToAdd = Math.min(occurrences * 10); // Ensure score does not exceed 200
-            entry.score += scoreToAdd; // Add calculated score
-        }
-    });
+    // Rebuild the leaderboard dynamically
+    globalLeaderboard = Object.keys(nameCount).map(name => ({
+        name,
+        score: nameCount[name] * 10 // Each win = +10 points
+    }));
 
     // Sort leaderboard by score (Highest first)
     globalLeaderboard.sort((a, b) => b.score - a.score);
@@ -372,11 +358,20 @@ function initPage() {
     setupEventListeners();
 }
 
-// Display global leaderboard
 function displayGlobalLeaderboard() {
     const leaderboardList = document.querySelector('.leaderboard-list');
     if (!leaderboardList) return;
 
+    // Clear existing list
+    leaderboardList.innerHTML = '';
+
+    // Only show if there are winners
+    if (globalLeaderboard.length === 0) {
+        leaderboardList.innerHTML = '<li>No winners yet!</li>';
+        return;
+    }
+
+    // Dynamically create the leaderboard
     leaderboardList.innerHTML = globalLeaderboard.map((entry, index) => `
         <li>
             <span class="position">${index + 1}</span>
