@@ -1,15 +1,15 @@
 // Global Leaderboard Data
 const globalLeaderboard = [
-    { name: "Abhinav Upadhyay", score: 120 },
-    { name: "Daivik Pratap Singh", score: 95 },
-    { name: "Pranav Sharma", score: 90 },
-    { name: "Ayushi Maheshwari", score: 85 },
-    { name: "Chitransh Mittal", score: 80 },
-    { name: "Nitya Patel", score: 75 },
-    { name: "Amrit Kumawat", score: 70 },
-    { name: "Milan Jain", score: 65 },
-    { name: "Vineet Kumar", score: 60 },
-    { name: "Ritika Suman", score: 55 }
+    { name: "Abhinav Upadhyay", score: 0 },
+    { name: "Daivik Pratap Singh", score: 0 },
+    { name: "Pranav Sharma", score: 0 },
+    { name: "Ayushi Maheshwari", score: 0 },
+    { name: "Chitransh Mittal", score: 0 },
+    { name: "Nitya Patel", score: 0 },
+    { name: "Amrit Kumawat", score: 0 },
+    { name: "Milan Jain", score: 0 },
+    { name: "Vineet Kumar", score: 0 },
+    { name: "Ritika Suman", score: 0 }
 ];
 
 // Static Data Storage
@@ -336,12 +336,37 @@ const challengeData = {
     currentDay: 20
 };
 
+function updateLeaderboardScores() {
+    const nameCount = {};
+
+    // Count occurrences of each name in challengeData
+    challengeData.days.forEach(day => {
+        day.winners.forEach(winner => {
+            nameCount[winner.name] = (nameCount[winner.name] || 0) + 1;
+        });
+    });
+
+    // Update scores in the global leaderboard, ensuring max score does not exceed 200
+    globalLeaderboard.forEach(entry => {
+        if (nameCount[entry.name]) {
+            const occurrences = nameCount[entry.name];
+            const scoreToAdd = Math.min(occurrences * 10); // Ensure score does not exceed 200
+            entry.score += scoreToAdd; // Add calculated score
+        }
+    });
+
+    // Sort leaderboard by score (Highest first)
+    globalLeaderboard.sort((a, b) => b.score - a.score);
+
+}
+
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', initPage);
 
 // Initialize page
 function initPage() {
-    displayGlobalLeaderboard();
+    updateLeaderboardScores(); // Update scores on page load
+    displayGlobalLeaderboard(); // Display updated leaderboard
     displayTimeline();
     setupNavigation();
     setupEventListeners();
@@ -366,7 +391,7 @@ function displayTimeline() {
     const timelineContainer = document.querySelector('.timeline-container');
     if (!timelineContainer) return;
 
-    timelineContainer.innerHTML = challengeData.days.reverse().map(day => `
+    timelineContainer.innerHTML = challengeData.days.slice().reverse().map(day => `
         <div class="timeline-item" data-day="${day.day}">
             <h3>Day ${day.day}</h3>
             <p class="question-preview">${day.question}</p>
@@ -394,15 +419,12 @@ function showDayDetails(day) {
         </div>
         <div class="winners">
             <h3>Winners:</h3>
-            ${day.winners.length > 0 ?
-            day.winners.map(winner => `
-                    <div class="winner-item">
-                        <span class="position">${winner.position}</span>
-                        <span class="name">${winner.name}</span>
-                    </div>
-                `).join('') :
-            '<p>No winners yet!</p>'
-        }
+            ${day.winners.length > 0 ? day.winners.map(winner => `
+                <div class="winner-item">
+                    <span class="position">${winner.position}</span>
+                    <span class="name">${winner.name}</span>
+                </div>
+            `).join('') : '<p>No winners yet!</p>'}
         </div>
     `;
 
@@ -425,31 +447,23 @@ function setupNavigation() {
 
 // Setup event listeners
 function setupEventListeners() {
-    // Timeline item click handlers
-    document.querySelectorAll('.timeline-item').forEach(item => {
-        item.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('view-details')) return;
-
-            const dayNumber = parseInt(item.dataset.day);
+    document.querySelectorAll('.timeline-item .view-details').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const dayNumber = parseInt(button.closest('.timeline-item').dataset.day);
             const day = challengeData.days.find(d => d.day === dayNumber);
-            if (day) {
-                showDayDetails(day);
-            }
+            if (day) showDayDetails(day);
         });
     });
 
-    // Modal close button
+    // Close modal on click
     const closeModal = document.querySelector('.close-modal');
     if (closeModal) {
         closeModal.addEventListener('click', () => {
-            const modalOverlay = document.querySelector('.modal-overlay');
-            if (modalOverlay) {
-                modalOverlay.style.display = 'none';
-            }
+            document.querySelector('.modal-overlay').style.display = 'none';
         });
     }
 
-    // Modal overlay click to close
+    // Close modal when clicking outside content
     const modalOverlay = document.querySelector('.modal-overlay');
     if (modalOverlay) {
         modalOverlay.addEventListener('click', (e) => {
