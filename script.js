@@ -313,9 +313,15 @@ const challengeData = {
         {
             day: 20,
             question: "Which cybersecurity technique involves adding random data to passwords before hashing them to make them more resistant to attacks? A) Salting B) Hashing C) Encryption D) Tokenization",
-            answer: "Yet to reveal...",
+            answer: "(A) Salting is the process of adding random data (a unique \"salt\") to a password before hashing it. This makes it much harder for attackers to use precomputed hash tables (like rainbow tables) to crack passwords. Even if two users have the same password, their hashes will be different due to unique salts.",
             winners: [
-                { position: "🔹", name: "Waiting..." }
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Ashwin Yadav" },
+                { position: "🔹", name: "Ayushi Swami" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Daksh Duhlani" },
+                { position: "🔹", name: "Tannu" },
+                { position: "🔹", name: "Abhinav Upadhyay" }
             ]
         }
     ],
