@@ -197,7 +197,7 @@ nav ul {
     padding: 2rem;
     border-radius: 8px;
     max-width: 800px;
-    width: 90%;
+    width: 85%;
     max-height: 700px;
     overflow-y: auto;
     position: relative;
@@ -469,4 +469,19 @@ button:hover {
     .name {
         margin: 5px 0;
     }
+}
+
+.instagram-button a.button {
+    padding: 10px 15px;
+    background: #238636;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: all 0.3s;
+}
+
+.instagram-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }

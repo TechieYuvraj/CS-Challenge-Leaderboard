@@ -449,7 +449,7 @@ function showDayDetails(day) {
             `).join('') : '<p>No winners yet!</p>'}
         </div>
         <div class="instagram-button">
-            <a href="https://www.instagram.com/tech_soul_boy" target="_blank" class="button">Answer the Question Here</a>
+            <a href="https://www.instagram.com/stories/tech_soul_boy" target="_blank" class="button">Answer the Question Here</a>
         </div>
     `;
 
