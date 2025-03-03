@@ -225,6 +225,14 @@ nav ul {
     color: var(--accent-color);
 }
 
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .modal {
+        max-width: 75%;
+
+    }
+}
+
 /* Responsive Timeline */
 @media (max-width: 768px) {
     .timeline::before {
@@ -478,10 +486,12 @@ button:hover {
     text-decoration: none;
     color: var(--text-color);
     transition: all 0.3s;
+    text-align: center;
 }
 
 .instagram-button {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    gap: 20px;
 }
