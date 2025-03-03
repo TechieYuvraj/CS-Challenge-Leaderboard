@@ -323,9 +323,17 @@ const challengeData = {
                 { position: "🔹", name: "Tannu" },
                 { position: "🔹", name: "Abhinav Upadhyay" }
             ]
+        },
+        {
+            day: 21,
+            question: "You're analyzing network traffic and notice an unusual amount of DNS requests being sent from a single device to random domain names. 🤔 What could this indicate?",
+            answer: "Yet to reveal...",
+            winners: [
+                { position: "🔹", name: "Waiting to Announce..." }
+            ]
         }
     ],
-    currentDay: 20
+    currentDay: 21
 };
 
 // Global leaderboard data
