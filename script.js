@@ -327,13 +327,24 @@ const challengeData = {
         {
             day: 21,
             question: "You're analyzing network traffic and notice an unusual amount of DNS requests being sent from a single device to random domain names. 🤔 What could this indicate?",
+            answer: "[DNS tunneling]:- is a method cybercriminals use to exfiltrate data or establish communication with a remote server by encoding information within DNS queries and responses. Since DNS traffic is often allowed through firewalls, attackers exploit it to bypass security controls and maintain covert communication with their malicious infrastructure. [Botnet Activity]:– Many botnets leverage DNS Tunneling to remain hidden and communicate with their C2 servers, making this a partially correct response.",
+            winners: [
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Ashwin Yadav"  },
+                { position: "🔹", name: "Shruti Jain" },
+                { position: "🔹", name: "Amrit Kumawat" }
+            ]
+        },
+        {
+            day: 22,
+            question: "A hacker tricks you into entering your login credentials on a fake website that looks identical to the real one. However, instead of just stealing your password, the hacker also intercepts your multi-factor authentication (MFA) code in real-time. 🔍 What is this attack called?",
             answer: "Yet to reveal...",
             winners: [
                 { position: "🔹", name: "Waiting to Announce..." }
             ]
         }
     ],
-    currentDay: 21
+    currentDay: 22
 };
 
 // Global leaderboard data
