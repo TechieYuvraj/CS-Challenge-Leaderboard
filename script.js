@@ -338,13 +338,28 @@ const challengeData = {
         {
             day: 22,
             question: "A hacker tricks you into entering your login credentials on a fake website that looks identical to the real one. However, instead of just stealing your password, the hacker also intercepts your multi-factor authentication (MFA) code in real-time. 🔍 What is this attack called?",
+            answer: `"Real-Time Phishing (AiTM - Adversary-in-the-Middle Attack)"`,
+            winners: [
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Ashwin Yadav" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Abhishek Kumawat" }
+            ]
+        },
+        {
+            day: 23,
+            question: `"A company finds that its employees are frequently falling for phishing attacks, despite regular training. What is the most effective long-term solution to minimize the risk? 🤔
+                        A) Increase the frequency of phishing awareness training sessions.
+                        B) Implement AI-powered email filtering and threat detection systems.
+                        C) Fire employees who repeatedly fall for phishing scams.
+                        D) Block all external emails to prevent phishing attempts."`,
             answer: "Yet to reveal...",
             winners: [
                 { position: "🔹", name: "Waiting to Announce..." }
             ]
         }
     ],
-    currentDay: 22
+    currentDay: 23
 };
 
 // Global leaderboard data
