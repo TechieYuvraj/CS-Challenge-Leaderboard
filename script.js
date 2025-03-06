@@ -353,13 +353,26 @@ const challengeData = {
                         B) Implement AI-powered email filtering and threat detection systems.
                         C) Fire employees who repeatedly fall for phishing scams.
                         D) Block all external emails to prevent phishing attempts."`,
+            answer: `"B) Implement AI-powered email filtering and threat detection systems.
+                    While training employees (Option A) is important, humans can still make mistakes. 
+                    The best way to reduce phishing risks is by using AI-powered email security solutions that detect and block phishing attempts before they reach employees."`,
+            winners: [
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Ashwin Yadav" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Shruti Jain" }
+            ]
+        },
+        {
+            day: 24,
+            question: `A hacker managed to access an encrypted database but couldn’t read any sensitive data. What security measure prevented them from doing so? 🤔`,
             answer: "Yet to reveal...",
             winners: [
                 { position: "🔹", name: "Waiting to Announce..." }
             ]
         }
     ],
-    currentDay: 23
+    currentDay: 24
 };
 
 // Global leaderboard data
