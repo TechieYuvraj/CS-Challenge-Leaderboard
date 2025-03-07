@@ -366,13 +366,25 @@ const challengeData = {
         {
             day: 24,
             question: `A hacker managed to access an encrypted database but couldn’t read any sensitive data. What security measure prevented them from doing so? 🤔`,
+            answer: "The security measure that prevented the hacker from reading the sensitive data is Encryption.",
+            winners: [
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Ashwin Yadav" },
+                { position: "🔹", name: "Anuj Sharma" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Rishabh Dadhich" }
+            ]
+        },
+        {
+            day: 25,
+            question: `💡 A hacker tricks you into using a fake WiFi network that looks like a real one. What is this type of attack called? 🤔`,
             answer: "Yet to reveal...",
             winners: [
                 { position: "🔹", name: "Waiting to Announce..." }
             ]
         }
     ],
-    currentDay: 24
+    currentDay: 25
 };
 
 // Global leaderboard data
