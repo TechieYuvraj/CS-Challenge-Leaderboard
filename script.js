@@ -378,6 +378,17 @@ const challengeData = {
         {
             day: 25,
             question: `💡 A hacker tricks you into using a fake WiFi network that looks like a real one. What is this type of attack called? 🤔`,
+            answer: "The answer is Evil Twin Attack. An Evil Twin Attack is when an attacker sets up a rogue WiFi hotspot that mimics a legitimate network to steal data from unsuspecting users.",
+            winners: [
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Ashwin Yadav" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Yashashvi Audhichya" }
+            ]
+        },
+        {
+            day: 25,
+            question: `A hacker manages to break into a company’s internal network but doesn’t immediately take any action. Instead, they quietly explore the system, gather information, and wait for the perfect moment to strike. 🔍 What is this type of cyberattack called?`,
             answer: "Yet to reveal...",
             winners: [
                 { position: "🔹", name: "Waiting to Announce..." }
