@@ -387,7 +387,7 @@ const challengeData = {
             ]
         },
         {
-            day: 25,
+            day: 26,
             question: `A hacker manages to break into a company’s internal network but doesn’t immediately take any action. Instead, they quietly explore the system, gather information, and wait for the perfect moment to strike. 🔍 What is this type of cyberattack called?`,
             answer: "Yet to reveal...",
             winners: [
@@ -395,7 +395,7 @@ const challengeData = {
             ]
         }
     ],
-    currentDay: 25
+    currentDay: 26
 };
 
 // Global leaderboard data
