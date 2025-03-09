@@ -389,13 +389,23 @@ const challengeData = {
         {
             day: 26,
             question: `A hacker manages to break into a company’s internal network but doesn’t immediately take any action. Instead, they quietly explore the system, gather information, and wait for the perfect moment to strike. 🔍 What is this type of cyberattack called?`,
+            answer: "An Advanced Persistent Threat (APT) is a prolonged and targeted cyberattack where an attacker gains unauthorized access to a network and remains undetected for an extended period. The goal is often to steal sensitive information, monitor activities, or prepare for a larger attack.",
+            winners: [
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Shruti jain" },
+                { position: "🔹", name: "Anjali Jain" }
+            ]
+        },
+        {
+            day: 27,
+            question: `🔍 I don’t steal your data directly, but I trick you into giving it to me willingly. What am I? 🤔`,
             answer: "Yet to reveal...",
             winners: [
                 { position: "🔹", name: "Waiting to Announce..." }
             ]
         }
     ],
-    currentDay: 26
+    currentDay: 27
 };
 
 // Global leaderboard data
