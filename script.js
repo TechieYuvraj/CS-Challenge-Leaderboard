@@ -399,13 +399,22 @@ const challengeData = {
         {
             day: 27,
             question: `🔍 I don’t steal your data directly, but I trick you into giving it to me willingly. What am I? 🤔`,
+            answer: "Social engineering is a manipulation technique that exploits human psychology to trick people into revealing sensitive information, such as passwords or financial details. Common examples include phishing emails, pretexting, baiting, and impersonation.",
+            winners: [
+                { position: "🔹", name: "Aarushi Lodha" },
+                { position: "🔹", name: "Nikhil Sharma" }
+            ]
+        },
+        {
+            day: 28,
+            question: `A hacker successfully steals the hashed passwords of users from a database. What technique might they use to crack these passwords efficiently, and how can users protect themselves from such attacks? 🔐💻`,
             answer: "Yet to reveal...",
             winners: [
                 { position: "🔹", name: "Waiting to Announce..." }
             ]
         }
     ],
-    currentDay: 27
+    currentDay: 28
 };
 
 // Global leaderboard data
