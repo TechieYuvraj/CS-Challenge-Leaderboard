@@ -408,13 +408,24 @@ const challengeData = {
         {
             day: 28,
             question: `A hacker successfully steals the hashed passwords of users from a database. What technique might they use to crack these passwords efficiently, and how can users protect themselves from such attacks? 🔐💻`,
+            answer: "The hacker might use Rainbow Table Attacks or Brute Force Attacks to crack the hashed passwords. To protect themselves, users should choose strong, unique passwords and use a password manager to securely store them.",
+            winners: [
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Ashwin Yadav" },
+                { position: "🔹", name: "Anjali Jain" }
+            ]
+        },
+        {
+            day: 29,
+            question: `A company experienced a data breach where an attacker gained access to a large amount of sensitive information, but there was no sign of malware, phishing, or brute-force attacks.
+                        What type of attack might have been used, and how could it have happened? 🤔`,
             answer: "Yet to reveal...",
             winners: [
                 { position: "🔹", name: "Waiting to Announce..." }
             ]
         }
     ],
-    currentDay: 28
+    currentDay: 29
 };
 
 // Global leaderboard data
