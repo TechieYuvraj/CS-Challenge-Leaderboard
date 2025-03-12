@@ -419,13 +419,25 @@ const challengeData = {
             day: 29,
             question: `A company experienced a data breach where an attacker gained access to a large amount of sensitive information, but there was no sign of malware, phishing, or brute-force attacks.
                         What type of attack might have been used, and how could it have happened? 🤔`,
+            answer: "If no malware, phishing, or brute-force attack was detected, the breach might have been caused by an insider threat, where an employee or contractor with access to sensitive data intentionally or accidentally leaked it.",
+            winners: [
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Ashwin Yadav" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Abhinav Upadhyay" },
+                { position: "🔹", name: "Shruti Jain" }
+            ]
+        },
+        {
+            day: 30,
+            question: `A hacker gains access to an organization's internal network and remains undetected for months, slowly exfiltrating data without triggering any security alarms. 🔍 What is this type of cyberattack called?`,
             answer: "Yet to reveal...",
             winners: [
                 { position: "🔹", name: "Waiting to Announce..." }
             ]
         }
     ],
-    currentDay: 29
+    currentDay: 30
 };
 
 // Global leaderboard data
