@@ -431,9 +431,12 @@ const challengeData = {
         {
             day: 30,
             question: `A hacker gains access to an organization's internal network and remains undetected for months, slowly exfiltrating data without triggering any security alarms. 🔍 What is this type of cyberattack called?`,
-            answer: "Yet to reveal...",
+            answer: "An Advanced Persistent Threat (APT) is a prolonged and targeted cyberattack where an attacker infiltrates a network and remains undetected for an extended period, often exfiltrating sensitive data or monitoring activities without triggering security alarms.",
             winners: [
-                { position: "🔹", name: "Waiting to Announce..." }
+                { position: "🔹", name: "Pranav Sharma" },
+                { position: "🔹", name: "Ashwin Yadav" },
+                { position: "🔹", name: "Anjali Jain" },
+                { position: "🔹", name: "Abhinav Upadhyay" }
             ]
         }
     ],
