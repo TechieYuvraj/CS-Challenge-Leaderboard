@@ -440,7 +440,7 @@ const challengeData = {
             ]
         }
     ],
-    currentDay: 30
+    currentDay: 0
 };
 
 // Global leaderboard data
