@@ -555,10 +555,6 @@ function showDayDetails(day) {
                 </div>
             `).join('') : '<p>No winners yet!</p>'}
         </div>
-        <div class="instagram-button">
-            <a href="https://www.instagram.com/stories/tech_soul_boy" target="_blank" class="button">Answer the Question Here</a>
-            <a href="https://wa.me/916394764323?text=I'm%20answering%20the%20Cyber%20Security%20Challenge%20question!%0A%0AMy%20Name%20is%20:-%20%0AAnswer%20is%20:-%20" target="_blank" class="button">Answer on Whatsapp</a>
-        </div>
     `;
 
     modalOverlay.style.display = 'flex';
